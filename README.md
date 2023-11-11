@@ -1,6 +1,6 @@
-# Tensei Engine Template and Profile
+# Tensei Engine Runtime
 
-The organization profile and the templates for code of conduct, contribution and other utilities used by Tensei Engine can be found on this repository and are used across all of its repositories.
+The beating heart of the Tensei Engine, the runtime ⚙️ powers your creations with essential features and functionality. It's the core component that propels your cross-platform game 🎮 and application development journey, igniting the creative spark within.
 
 ## Code of Conduct
 
@@ -12,4 +12,4 @@ Read our [contributing guidelines](./CONTRIBUTING.md) to learn about our develop
 
 ## License
 
-This repository is under the [MIT License](./LICENSE).
+This repository is under the [Apache License 2.0](./LICENSE).
