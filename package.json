@@ -6,6 +6,9 @@
   "scripts": {
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch",
+    "dev": "npm run build:watch",
     "test": "mocha"
   },
   "repository": {
@@ -36,6 +39,7 @@
     "@commitlint/config-conventional": "^18.4.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }
