@@ -6,6 +6,9 @@
   "scripts": {
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch",
+    "dev": "npm run build:watch",
     "test": "mocha"
   },
   "repository": {
