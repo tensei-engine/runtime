@@ -1,13 +1,41 @@
 {
-  "devDependencies": {
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
-    "prettier": "^3.0.3"
-  },
+  "name": "@tensei-engine/runtime",
+  "version": "0.0.0-development.0",
+  "description": "The beating heart of the Tensei Engine, the runtime ⚙️ powers your creations with essential features and functionality. It's the core component that propels your cross-platform game 🎮 and application development journey, igniting the creative spark within.",
+  "main": "dist/index.js",
   "scripts": {
     "prepare": "husky install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tensei-engine/runtime.git"
+  },
+  "keywords": [
+    "tensei",
+    "tensei-engine",
+    "runtime",
+    "engine",
+    "application",
+    "game",
+    "game-engine",
+    "application-engine"
+  ],
+  "author": "Tensei Engine",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/tensei-engine/runtime/issues"
+  },
+  "homepage": "https://github.com/tensei-engine/runtime#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.0",
+    "@commitlint/config-conventional": "^18.4.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.0.3"
   }
 }
