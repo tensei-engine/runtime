@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-First of all, thank you for taking an interest in contributing to the Tensei Engine project! We welcome your input and appreciate your help in making it a better tool for game and application development.
+First of all, thank you for taking an interest in contributing to the Tensei Engine Runtime project! We welcome your input and appreciate your help in making it a better tool for game and application development.
 Notice that this repository is used mostly as a template for other repositories and also where you can find the organization's profile. For this reason, it's mostly for internal usage by maintainers
 and therefore unlikely for you to want to do contributions to it. However, if you find the organization's profile misleading or you think you can help us by adding stuff to the template, we welcome you to collaborate with us on this repository.
 
@@ -20,7 +20,7 @@ Before continuing though, please refer to our [Code of Conduct](./CODE_OF_CONDUC
 
 ## How Can I Contribute?
 
-You can contribute to the Tensei Engine project and particularly to this repository in a few ways. In general, you will want to either [start a discussion](https://github.com/tensei-engine/.github/discussions), [open an issue](https://github.com/tensei-engine/.github/issues) or [make a pull request](https://github.com/tensei-engine/.github/pulls) on the respective [GitHub repository](https://github.com/tensei-engine/.github) and follow the instructions there.
+You can contribute to the Tensei Engine Runtime project and particularly to this repository in a few ways. In general, you will want to either [start a discussion](https://github.com/tensei-engine/runtime/discussions), [open an issue](https://github.com/tensei-engine/runtime/issues) or [make a pull request](https://github.com/tensei-engine/runtime/pulls) on the respective [GitHub repository](https://github.com/tensei-engine/runtime) and follow the instructions there.
 
 The preferred method of contribution is to start a discussion so that both the maintainers and the community are made aware of your suggestion and/or improvement and so that both can assess if it makes sense to promote the discussion into an issue worth tracking. It should be noted that even if the discussion is promoted to an issue, it may never end up being worked on, as the need for the proposed changes may vary over time.
 
@@ -28,26 +28,26 @@ The details for the various ways of contributing are as described below:
 
 ### Reporting Bugs
 
-If you discover a bug or unexpected behavior, please [post a question on our community](https://github.com/tensei-engine/.github/discussions/new?category=q-a), [start a general discussion](https://github.com/tensei-engine/.github/discussions/new?category=general) or [report the bug as an isuse](https://github.com/tensei-engine/.github/issues/new?template=bug_report.yml) and follow the instructions there.
+If you discover a bug or unexpected behavior, please [post a question on our community](https://github.com/tensei-engine/runtime/discussions/new?category=q-a), [start a general discussion](https://github.com/tensei-engine/runtime/discussions/new?category=general) or [report the bug as an isuse](https://github.com/tensei-engine/runtime/issues/new?template=bug_report.yml) and follow the instructions there.
 Please be as descriptive as possible, including steps to reproduce the issue and any relevant details.
 
 ### Suggesting Features or Enhancements
 
-We welcome your ideas for new features or improvements to existing ones. To suggest a feature, [share your idea with the community](https://github.com/tensei-engine/.github/discussions/new?category=idea) or [request a feature as an issue](https://github.com/tensei-engine/.github/issues/new?template=feature_request.yml) and follow the instructions there. Please be as descriptive as possible. You may even include implementation proposals!
+We welcome your ideas for new features or improvements to existing ones. To suggest a feature, [share your idea with the community](https://github.com/tensei-engine/runtime/discussions/new?category=idea) or [request a feature as an issue](https://github.com/tensei-engine/runtime/issues/new?template=feature_request.yml) and follow the instructions there. Please be as descriptive as possible. You may even include implementation proposals!
 
 ### Other suggestions
 
-If you instead want to suggest improvements to documentation, deployment pipelines and build processes, or report other issues or suggestions, please [start a general discussion](https://github.com/tensei-engine/.github/discussions/new?category=general) or [create a task for us](https://github.com/tensei-engine/.github/issues/new?template=create_task.yml) and follow the instructions there. Please be as descriptive as possible and select the appropriate labels.
+If you instead want to suggest improvements to documentation, deployment pipelines and build processes, or report other issues or suggestions, please [start a general discussion](https://github.com/tensei-engine/runtime/discussions/new?category=general) or [create a task for us](https://github.com/tensei-engine/runtime/issues/new?template=create_task.yml) and follow the instructions there. Please be as descriptive as possible and select the appropriate labels.
 
 ### Pull Requests
 
-We also encourage direct contributions that improve the Tensei Engine project through pull requests. To submit your changes, follow these steps:
+We also encourage direct contributions that improve the Tensei Engine Runtime project through pull requests. To submit your changes, follow these steps:
 
 1. Fork the project.
 2. Create a branch for your feature, bug fix or other changes.
 3. Implement your changes and ensure they adhere to our code style and conventions.
 4. Write tests to validate your changes (if applicable).
-5. Submit a pull request (PR) to our [GitHub repository](https://github.com/tensei-engine/.github).
+5. Submit a pull request (PR) to our [GitHub repository](https://github.com/tensei-engine/runtime).
 
 Your PR will be reviewed by project maintainers. If necessary, we may request further changes before merging.
 
@@ -67,8 +67,8 @@ As for the second part of this process, we do a status checks that once again us
 
 ## License
 
-By contributing to the Tensei Engine project, you agree that your contributions will be licensed under the project's [MIT License](https://github.com/tensei-engine/.github/blob/main/LICENSE).
+By contributing to the Tensei Engine Runtime project, you agree that your contributions will be licensed under the project's [Apache License 2.0](./LICENSE).
 
-We appreciate your help in improving the Tensei Engine project and making it a welcoming and productive environment for all contributors.
+We appreciate your help in improving the Tensei Engine Runtime project and making it a welcoming and productive environment for all contributors.
 
 Thank you for your contributions!
