@@ -13,4 +13,10 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   root: true,
+  overrides: [
+    {
+      extends: ["plugin:@typescript-eslint/disable-type-checked"],
+      files: [".eslintrc.cjs"],
+    },
+  ],
 };
