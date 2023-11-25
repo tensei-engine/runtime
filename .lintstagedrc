@@ -1,4 +1,7 @@
 {
-  "./**/*.ts?(x)": ["eslint --fix", "prettier --write --ignore-unknown"],
-  "./**/*.!(ts?(x))": ["prettier --write --ignore-unknown"]
+  "./((**/*|*).ts?(x)|.eslintrc.cjs)": [
+    "eslint --fix",
+    "prettier --write --ignore-unknown"
+  ],
+  "!./((**/*|*).ts?(x)|.eslintrc.cjs)": ["prettier --write --ignore-unknown"]
 }
