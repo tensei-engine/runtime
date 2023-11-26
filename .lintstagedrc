@@ -1,6 +1,6 @@
 {
   "./((**/*|*).ts?(x)|.eslintrc.cjs)": [
-    "eslint --fix",
+    "eslint --ignore-path .gitignore --fix",
     "prettier --write --ignore-unknown"
   ],
   "!./((**/*|*).ts?(x)|.eslintrc.cjs)": ["prettier --write --ignore-unknown"]
