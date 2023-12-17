@@ -4,5 +4,5 @@
     "allowJs": true,
     "noEmit": true
   },
-  "include": ["./**/*.ts", "./**/*.tsx", ".eslintrc.cjs"]
+  "include": ["./**/*.ts", "./**/*.tsx", ".eslintrc.cjs", "babel.config.js"]
 }

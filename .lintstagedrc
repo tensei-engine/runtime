@@ -1,7 +1,9 @@
 {
-  "./((**/*|*).ts?(x)|.eslintrc.cjs)": [
+  "./((**/*|*).ts?(x)|.eslintrc.cjs|babel.config.js)": [
     "eslint --ignore-path .gitignore --fix",
     "prettier --write --ignore-unknown"
   ],
-  "!./((**/*|*).ts?(x)|.eslintrc.cjs)": ["prettier --write --ignore-unknown"]
+  "!./((**/*|*).ts?(x)|.eslintrc.cjs|babel.config.js)": [
+    "prettier --write --ignore-unknown"
+  ]
 }
