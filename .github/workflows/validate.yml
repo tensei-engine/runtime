@@ -44,7 +44,6 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
-          - 16 # Even though Node.js 16 has reached it's end of life, it is still supported by the project
           - 18
           - 20
     runs-on: ${{ matrix.os }}
