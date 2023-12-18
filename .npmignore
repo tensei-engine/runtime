@@ -144,6 +144,7 @@ src/
 .lintstagedrc
 .mocharc.json
 .npmignore
+.nycrc.json
 .releaserc.json
 tsconfig.build.json
 tsconfig.eslint.json
