@@ -97,7 +97,7 @@ jobs:
           echo "custom_edit_url: null" >> docs/CHANGELOG.md
           echo "---" >> docs/CHANGELOG.md
           echo "" >> docs/CHANGELOG.md
-          cat ../target/CHANGELOG.md >> docs/CHANGELOG.md
+          if [[ -f ../target/CHANGELOG.md ]]; then cat ../target/CHANGELOG.md >> docs/CHANGELOG.md; fi
         working-directory: docs
       - name: Tag documentation
         run: npm run docusaurus docs:version ${{ needs.publish.outputs.VERSION }}
