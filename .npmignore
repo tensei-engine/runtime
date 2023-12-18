@@ -133,3 +133,23 @@ build
 # IDEs
 .vscode/
 .idea/
+
+# Source files
+src/
+
+# Configuration files
+.commitlintrc.json
+.eslintrc.cjs
+.gitignore
+.lintstagedrc
+.npmignore
+.releaserc.json
+tsconfig.eslint.json
+tsconfig.json
+
+# Other files
+.github/
+.husky/
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+package-lock.json

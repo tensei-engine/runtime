@@ -1,0 +1,122 @@
+name: Publish to npm registry
+
+on:
+  push:
+    branches:
+      - main
+      - beta
+      - alpha
+      - development
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: deployment
+    outputs:
+      VERSION: ${{ steps.publish.outputs.version }}
+      SUCCESS: ${{ steps.publish.outputs.success }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify integrity
+        run: npm audit signatures
+      - name: Build package
+        run: npm run build
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+      - name: Publish package
+        id: publish
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GIT_AUTHOR_NAME: ${{ steps.import_gpg.outputs.name }}
+          GIT_AUTHOR_EMAIL: ${{ steps.import_gpg.outputs.email }}
+          GIT_COMMITTER_NAME: ${{ steps.import_gpg.outputs.name }}
+          GIT_COMMITTER_EMAIL: ${{ steps.import_gpg.outputs.email }}
+
+  update-docs:
+    needs: publish
+    environment: deployment
+    runs-on: ubuntu-latest
+    if: ${{ needs.publish.outputs.SUCCESS == 'true' }}
+    steps:
+      - name: Checkout repository on source branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          path: target
+          ref: ${{ github.ref }} # checkout the branch that triggered the workflow on newest commit
+      - name: Checkout repository on documentation branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          path: docs
+          ref: gh-pages
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+        working-directory: docs
+      - name: Verify integrity
+        run: npm audit signatures
+        working-directory: docs
+      - name: Clean API documentation
+        run: rm -rf docs/api
+        working-directory: docs
+      - name: Build documentation
+        run: TYPEDOC_TSCONFIG="../target/tsconfig.json" TYPEDOC_ENTRY_POINT="../target/src/main/ts" npm run docusaurus generate-typedoc
+        working-directory: docs
+      - name: Build CHANGELOG.md
+        run: |
+          echo "---" > docs/CHANGELOG.md
+          echo "id: changelog" >> docs/CHANGELOG.md
+          echo "title: CHANGELOG" >> docs/CHANGELOG.md
+          echo "sidebar_label: CHANGELOG" >> docs/CHANGELOG.md
+          echo "sidebar_position: 2" >> docs/CHANGELOG.md
+          echo "custom_edit_url: null" >> docs/CHANGELOG.md
+          echo "---" >> docs/CHANGELOG.md
+          echo "" >> docs/CHANGELOG.md
+          if [[ -f ../target/CHANGELOG.md ]]; then cat ../target/CHANGELOG.md >> docs/CHANGELOG.md; fi
+        working-directory: docs
+      - name: Tag documentation
+        run: npm run docusaurus docs:version ${{ needs.publish.outputs.VERSION }}
+        working-directory: docs
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          workdir: docs
+      - name: Commit documentation
+        run: |
+          git remote set-url origin https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository }}.git/
+          git add docs/CHANGELOG.md
+          git add versions.json
+          git add versioned_docs/version-${{ needs.publish.outputs.VERSION }}
+          git add versioned_sidebars/version-${{ needs.publish.outputs.VERSION }}-sidebars.json
+          git commit -m "docs(api): update for version ${{ needs.publish.outputs.VERSION }}"
+          git push
+        working-directory: docs
