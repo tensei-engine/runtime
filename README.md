@@ -1,4 +1,4 @@
-# Tensei Engine Runtime
+# Tensei Engine Runtime [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=tensei-engine_runtime)](https://sonarcloud.io/summary/new_code?id=tensei-engine_runtime)
 
 The beating heart of the Tensei Engine, the runtime ⚙️ powers your creations with essential features and functionality. It's the core component that propels your cross-platform game 🎮 and application development journey, igniting the creative spark within.
 

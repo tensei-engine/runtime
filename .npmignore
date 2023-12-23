@@ -142,8 +142,11 @@ src/
 .eslintrc.cjs
 .gitignore
 .lintstagedrc
+.mocharc.json
 .npmignore
+.nycrc.json
 .releaserc.json
+tsconfig.build.json
 tsconfig.eslint.json
 tsconfig.json
 
