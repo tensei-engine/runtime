@@ -63,3 +63,31 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
+
+  test:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        node-version:
+          - 16 # Even though Node.js 16 has reached it's end of life, it is still supported by the project
+          - 18
+          - 20
+        exclude:
+          - os: ubuntu-latest # Already tested in test-and-analysis job
+            node-version: 18
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test
