@@ -3,6 +3,11 @@
   "version": "0.0.0-development.0",
   "description": "The beating heart of the Tensei Engine, the runtime ⚙️ powers your creations with essential features and functionality. It's the core component that propels your cross-platform game 🎮 and application development journey, igniting the creative spark within.",
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./lib/*": "./dist/*/index.js",
+    "./dist/*": "./dist/*.js"
+  },
   "scripts": {
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
