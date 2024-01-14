@@ -75,17 +75,23 @@ jobs:
           node-version: 18
           cache: npm
           cache-dependency-path: docs/package-lock.json
-      - name: Install dependencies
+      - name: Install dependencies on source branch
+        run: npm ci
+        working-directory: target
+      - name: Install dependencies on documentation branch
         run: npm ci
         working-directory: docs
-      - name: Verify integrity
+      - name: Verify integrity on source branch
+        run: npm audit signatures
+        working-directory: target
+      - name: Verify integrity on documentation branch
         run: npm audit signatures
         working-directory: docs
       - name: Clean API documentation
         run: rm -rf docs/api
         working-directory: docs
       - name: Build documentation
-        run: TYPEDOC_TSCONFIG="../target/tsconfig.json" TYPEDOC_ENTRY_POINT="../target/src/main/ts" npm run docusaurus generate-typedoc
+        run: npx cross-env TYPEDOC_TSCONFIG="../target/tsconfig.build.json" TYPEDOC_ENTRY_POINT="../target/src/main/ts" npm run docusaurus generate-typedoc
         working-directory: docs
       - name: Build CHANGELOG.md
         run: |
@@ -113,7 +119,6 @@ jobs:
       - name: Commit documentation
         run: |
           git remote set-url origin https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository }}.git/
-          git add docs/CHANGELOG.md
           git add versions.json
           git add versioned_docs/version-${{ needs.publish.outputs.VERSION }}
           git add versioned_sidebars/version-${{ needs.publish.outputs.VERSION }}-sidebars.json
