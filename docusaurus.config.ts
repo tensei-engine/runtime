@@ -27,6 +27,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "/",
+          includeCurrentVersion: false,
         },
         blog: false,
         theme: {
