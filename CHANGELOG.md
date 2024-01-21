@@ -1,3 +1,9 @@
+# [1.0.0-development.2](https://github.com/tensei-engine/runtime/compare/v1.0.0-development.1...v1.0.0-development.2) (2024-01-21)
+
+### Features
+
+- **type-utils:** added type utilities for determining types at runtime ([b6ab179](https://github.com/tensei-engine/runtime/commit/b6ab1798b593c1b30f0f3df682e3415df5fbb059))
+
 # 1.0.0-development.1 (2024-01-14)
 
 ### Features
