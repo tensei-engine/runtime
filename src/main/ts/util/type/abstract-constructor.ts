@@ -1,5 +1,8 @@
 /**
  * A type that represents an abstract constructor.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Abstraction
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
  */
 export type AbstractConstructor<
   Type = unknown,
