@@ -1,11 +1,14 @@
-import type { Intersection } from "../util/types/intersection";
-import type { AbstractConstructor } from "../util/types/abstract-constructor";
+import type { Intersection } from "../util/type/intersection";
+import type { AbstractConstructor } from "../util/type/abstract-constructor";
 
 /**
  * Registers the decorated class as an instance of the specified super classes.
  *
  * @param superConstructors Super classes to register the decorated class as an instance of.
  * @returns Decorator function.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
  */
 export function metatag<
   SuperTypes extends unknown[],
